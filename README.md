@@ -6,6 +6,13 @@ My personal vim configuration file
 * Install pip3 `sudo apt install python3-pip`
 * Install git `sudo apt install git`
 
+# Set up bash style
+```
+$ git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git
+$ cd gnome-terminal-colors-solarized
+$ ./install.sh
+```
+
 # Vim
 * Install neovim `sudo apt install neovim`
 * Update neovim python3 `pip3 install neovim`

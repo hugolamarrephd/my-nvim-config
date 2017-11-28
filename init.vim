@@ -3,9 +3,19 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lervag/vimtex'
 Plug 'tpope/vim-commentary'
 Plug 'wikitopian/hardmode'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
-" Save shift for commands
+syntax enable
+
+" Visual theme
+set background=light
+colorscheme solarized
+
+" Highligh max columns (PEP8)
+set colorcolumn=79
+
+" Don't need to use shift for commands
 nnoremap ; :
 
 " Basic formatting
@@ -16,17 +26,12 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" Set default backspace behavior
+" Revert to default backspace behavior
+" Protect content prior to insert or linebreak
 set backspace=eol
 
-" Conclude search
+" Conclude search with \n
 nnoremap <silent> <leader>n :nohl<CR>
-
-" Break bad habits (e.g moving with arrows) with hard-mode
-" Uncomment following line to boot in HardMode:
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-" Or toggle with \h
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Break bad habits: disable arrows
 inoremap <Up> <NOP>
@@ -39,12 +44,20 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Break bad habits: moving with HJKL
+" Toggle with \h
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" Uncomment following line to boot in HardMode:
+" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
 " Use jj instead of <ESC>
 " and save automatically when leaving insert mode
 inoremap jj <Esc>:w<CR>
 inoremap <Esc> <NOP>
 
-" Quit on explicit write to lose habit of :w all the time!
+" Quit on write to lose habit of compulsive saving!
+" TODO launch tests on explicit save with :w
 :cnoreabbrev w w<bar>q
 
 " Persistent undo (file-by-file)
@@ -64,17 +77,14 @@ nnoremap <C-l> :wincmd l<CR>
 set listchars=trail:·
 set list
 
-" Remove traling whitespaces with \w
+" Remove trailing whitespaces with \w
 nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:unlet _s <Bar>:%s/\($\n\s*\)\+\%$//e<Bar><CR>
 
-" Highligh max columns (PEP8)
-set colorcolumn=79
-highlight ColorColumn ctermbg=black guibg=black
 
-" Code folding (and fold with <spacebar>)
+" Code folding with <spacebar>
 set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
-" Tex compilation with (\ll,\lv,\lc)
+" Tex compilation with \ll (and on save)
 let g:tex_flavor = 'latex'
