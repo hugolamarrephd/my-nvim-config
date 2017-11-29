@@ -1,6 +1,5 @@
 " Preliminary setup
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'lervag/vimtex'
 Plug 'tpope/vim-commentary'
 Plug 'wikitopian/hardmode'
 Plug 'altercation/vim-colors-solarized'
@@ -11,6 +10,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Markdown
 Plug 'JamshedVesuna/vim-markdown-preview'
+" LATEX
+Plug 'lervag/vimtex'
 call plug#end()
 
 syntax enable
@@ -18,6 +19,20 @@ syntax enable
 " Visual theme
 set background=light
 colorscheme solarized
+
+" Launch NERDTree with \t
+nnoremap <silent> <leader>t :NERDTree<CR>
+" autocmd vimenter * NERDTree " Launch on boot
+let NERDTreeMapActivateNode='<space>' " Open file/folders with <space>
+set splitright
+
+" Statusline
+set statusline=%f
+set statusline+=%{fugitive#statusline()}
+set statusline+=%=
+set statusline+=(%04l
+set statusline+=/
+set statusline+=%04L)
 
 " Highligh max columns (PEP8)
 set colorcolumn=79
@@ -50,7 +65,7 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
+"
 " Break bad habits: moving with HJKL
 " Toggle with \h
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -75,10 +90,10 @@ set undodir=~/.vim/undodir
 set number relativenumber
 
 " Split navigation
-nnoremap <C-h> :wincmd h<CR>
-nnoremap <C-j> :wincmd j<CR>
-nnoremap <C-k> :wincmd k<CR>
-nnoremap <C-l> :wincmd l<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
 
 "Highligh trailing whitespaces
 set listchars=trail:·
