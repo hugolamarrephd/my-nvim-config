@@ -4,6 +4,13 @@ Plug 'lervag/vimtex'
 Plug 'tpope/vim-commentary'
 Plug 'wikitopian/hardmode'
 Plug 'altercation/vim-colors-solarized'
+" NERD
+Plug 'scrooloose/nerdtree'
+" GIT
+Plug 'tpope/vim-fugitive'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Markdown
+Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
 
 syntax enable
@@ -88,3 +95,7 @@ nnoremap <space> za
 
 " Tex compilation with \ll (and on save)
 let g:tex_flavor = 'latex'
+
+" Markdown github style visualization with <C-p>
+" Don't forget to: $ pip install grip
+let vim_markdown_preview_github=1
