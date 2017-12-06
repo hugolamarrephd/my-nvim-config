@@ -1,6 +1,7 @@
 " TODO launch tests on explicit save with :w
 " Preliminary setup
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'wikitopian/hardmode'
 Plug 'altercation/vim-colors-solarized'
@@ -31,6 +32,9 @@ set splitright
 " Highligh max columns (PEP8)
 set colorcolumn=79
 
+" Basic spell check (z= for correction choices, zg to add word)
+:setlocal spell spelllang=en_us
+
 " Basic formatting
 set encoding=utf-8
 set fileformat=unix
@@ -42,6 +46,9 @@ set expandtab
 " Revert to default backspace behavior
 " Protect content prior to insert or linebreak
 set backspace=eol
+
+" Break line with Ctrl-j (to right of cursor)
+nnoremap <C-j> li<CR><ESC>
 
 " Conclude search with \n
 nnoremap <silent> <leader>n :nohl<CR>
