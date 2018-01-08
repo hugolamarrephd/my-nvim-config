@@ -20,7 +20,7 @@ call plug#end()
 syntax enable
 
 " Visual theme
-set background=light
+set background=dark
 colorscheme solarized
 
 " Launch NERDTree with \t
