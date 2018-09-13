@@ -1,4 +1,3 @@
-" TODO launch tests on explicit save with :w
 " Preliminary setup
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-unimpaired'
@@ -10,14 +9,35 @@ Plug 'scrooloose/nerdtree'
 " GIT
 Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Markdown
+" Markdown <C-p>
 Plug 'JamshedVesuna/vim-markdown-preview'
 " LATEX
 Plug 'lervag/vimtex'
 Plug 'vim-voom/VOoM'
+" Surround (cs)
+Plug 'tpope/vim-surround'
+" Python (<F7>, <F8>)
+Plug 'nvie/vim-flake8'
+Plug 'tell-k/vim-autopep8'
 call plug#end()
 
 syntax enable
+
+" Save with <C-s>
+" If the current buffer has never been saved, it will have no name,
+" call the file browser to save it, otherwise just save it.
+command -nargs=0 -bar Update if &modified
+                           \|    if empty(bufname('%'))
+                           \|        browse confirm write
+                           \|    else
+                           \|        confirm write
+                           \|    endif
+                           \|endif
+nnoremap <silent> <C-s> :<C-u>Update<CR>
+inoremap <C-s> <Esc>:Update<CR>
+
+" Save and exit with <C-q>
+nnoremap <C-q> :Update<CR>:q<CR>
 
 " Visual theme
 set background=dark
@@ -79,11 +99,8 @@ set undodir=~/.vim/undodir
 set number relativenumber
 
 " Split navigation
-nnoremap <silent> <Left> <C-w>h
-nnoremap <silent> <Down> <C-w>j
-nnoremap <silent> <Up> <C-w>k
-nnoremap <silent> <Right> <C-w>l
-nnoremap <silent> <Tab> <C-w><C-w>
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-l> <C-w>l
 
 "Highligh trailing whitespaces
 set listchars=trail:·
@@ -105,3 +122,6 @@ nnoremap <leader>v <Esc>:Voom latex <CR>
 " Markdown github style visualization with <C-p>
 " Don't forget to: $ pip install grip
 let vim_markdown_preview_github=1
+
+" Auto Pep 8 (<F8>)
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
