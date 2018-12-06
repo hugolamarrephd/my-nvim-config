@@ -1,27 +1,32 @@
 # my-nvim-config
-My personal vim configuration file
+My personal neovim configuration file for windows
 
-# Basic setup
-* Install [Ubuntu 17.10 (Artful Aardvark)](http://releases.ubuntu.com/17.10/)
-* Install pip3 `sudo apt install python3-pip`
-* Install git `sudo apt install git`
+# Installation
 
-# Set up bash style
+* Install neovim
+
+* Install MikTex, Anaconda, GitHub
+
+* Create nvim27 (Python 2.7) and nvim37 (Python 3.7) environements 
+    1. `pip install neovim`
+    2. `pip install flake8`
+    3. `pip install autopep8`
+
+* Add `~\AppData\Local\GitHubDesktop\app-1.5.0\resources\app\git\cmd`
+to global paths (see environment variables in advanced system settings)
+
+
+* Clone this vim config file (`init.vim`)
 ```
-$ git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git
-$ cd gnome-terminal-colors-solarized
-$ ./install.sh
+git clone https://github.com/hugolamarrephd/my-nvim-config/ ~/AppData\Local\nvim\
 ```
 
-# Vim
-* Install neovim `sudo apt install neovim`
-* Update neovim python3 `pip3 install neovim`
-* Clone vim config
-```
-git clone https://github.com/hugolamarrephd/my-nvim-config/ ~/.config/nvim/
-```
 * Install plug
 ```
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c :PlugInstall
+
+* Run `:PlugInstall`
+
+* Restart and enjoy!
