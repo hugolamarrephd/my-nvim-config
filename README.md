@@ -25,8 +25,8 @@ mklink ~\AppData\Local\nvim\init.vim ~\Documents\Github\my-nvim-config\init.vim
 ```
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 ```
+
 * Run `:PlugInstall`
 
 * Restart and enjoy!
