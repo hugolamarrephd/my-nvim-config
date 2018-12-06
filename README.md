@@ -16,9 +16,9 @@ My personal neovim configuration file for windows
 to global paths (see environment variables in advanced system settings)
 
 
-* Clone the vim configuration file (`init.vim`)
+* Create symbolic link
 ```
-git clone https://github.com/hugolamarrephd/my-nvim-config/ ~\AppData\Local\nvim\
+mklink ~\AppData\Local\nvim\init.vim ~\Documents\Github\my-nvim-config\init.vim
 ```
 
 * Install plug

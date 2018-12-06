@@ -79,7 +79,7 @@ inoremap <Esc> <NOP>
 
 " Persistent undo (file-by-file)
 set undofile
-set undodir=$HOME."\\.vim\\undodir"
+set undodir=$HOME\\.vim\\undodir
 
 " Split navigation
 nnoremap <silent> <C-h> <C-w>h
