@@ -7,7 +7,7 @@ My personal neovim configuration file for windows
 
 * Install MikTex, Anaconda, GitHub
 
-* Create nvim27 (Python 2.7) and nvim37 (Python 3.7) environements 
+* Create nvim27 (Python 2.7) and nvim37 (Python 3.7) environments
     1. `pip install neovim`
     2. `pip install flake8`
     3. `pip install autopep8`
@@ -16,16 +16,15 @@ My personal neovim configuration file for windows
 to global paths (see environment variables in advanced system settings)
 
 
-* Clone this vim config file (`init.vim`)
+* Clone the vim configuration file (`init.vim`)
 ```
-git clone https://github.com/hugolamarrephd/my-nvim-config/ ~/AppData\Local\nvim\
+git clone https://github.com/hugolamarrephd/my-nvim-config/ ~\AppData\Local\nvim\
 ```
 
 * Install plug
 ```
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c :PlugInstall
 
 * Run `:PlugInstall`
 
