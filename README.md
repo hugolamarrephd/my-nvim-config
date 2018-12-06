@@ -26,6 +26,7 @@ git clone https://github.com/hugolamarrephd/my-nvim-config/ ~\AppData\Local\nvim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+```
 * Run `:PlugInstall`
 
 * Restart and enjoy!
