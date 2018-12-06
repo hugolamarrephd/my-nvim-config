@@ -95,6 +95,15 @@ set list
 nnoremap <silent> <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<Bar>:unlet _s <Bar>:%s/\($\n\s*\)\+\%$//e<Bar><CR>
 
 
+" System clipboard
+vnoremap <leader>y "+y
+nnoremap <leader>y "+y
+nnoremap  <leader>yy  "+yy
+
+vnoremap <leader>p "+p
+nnoremap <leader>p "+p
+vnoremap <leader>P "+P
+nnoremap <leader>P "+P
 
 try
 
@@ -137,6 +146,8 @@ try
     autocmd vimenter * NERDTree " Launch on boot
     let NERDTreeMapActivateNode='<space>' " Open file/folders with <space>
     set splitright
+    let NERDTreeIgnore = ['\.eps$','\.fig$', '\.pdf$']
+    let NERDTreeShowBookmarks=1
 
 """""""""""
 " FOLDING "
